@@ -7,6 +7,7 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var cookieParser = require('cookie-parser');
+var responseTime = require('response-time');
 
 app.set("view engine", "jade");
 app.use(express.static(__dirname + '/public'));
@@ -14,6 +15,7 @@ app.use(bodyParser());
 app.use(cookieParser());
 app.use(session({ store: new RedisStore({ url: "redis://localhost:6379" }), secret: "Cats are awesome."}));
 app.use(flash());
+app.use(responseTime(3));
 
 controllers.init(app);
 

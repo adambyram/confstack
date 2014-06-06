@@ -7,6 +7,8 @@ block content
             .well
                 h4= session.title
                 em= session.speaker
+                br
+                a(href=session.rawLink) Raw JSON via API
     hr
     h4 New Session
         if error

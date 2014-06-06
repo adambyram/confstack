@@ -16,6 +16,7 @@
     "express-session": "^1.2.1",
     "jade": "*",
     "mongodb": "^1.4.5",
+    "response-time": "^2.0.0",
     "underscore": "*"
   },
   "devDependencies": {}

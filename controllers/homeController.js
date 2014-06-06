@@ -5,6 +5,9 @@
         app.get('/sessions', function(req, res) {
             data.getSessions(function(err, sessions) {
                 var error = req.flash('errorMessage');
+                sessions.forEach(function(session) {
+                   session.rawLink = '/api/sessions/' + session.title;
+                });
                 res.render('sessionList', {title: 'Current Session List', sessions: sessions, error: error});
             })
         });

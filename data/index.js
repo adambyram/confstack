@@ -19,6 +19,16 @@
 
     };
 
+    data.getSessionDetail = function(title, next) {
+        database.getDb(function(err, db) {
+            if(err) {
+                next(err, null);
+            } else {
+                db.sessions.findOne({ title: title }, next);
+            }
+        });
+    };
+
     data.createSession = function(title, speaker, next) {
         database.getDb(function(err, db) {
             if(err) {
