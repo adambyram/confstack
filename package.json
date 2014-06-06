@@ -9,6 +9,7 @@
   },
   "dependencies": {
       "express": "*",
-      "underscore": "*"
+      "underscore": "*",
+      "jade": "*"
   }
 }
