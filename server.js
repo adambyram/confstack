@@ -5,13 +5,14 @@ var controllers = require('./controllers');
 var bodyParser = require('body-parser');
 var flash = require('connect-flash');
 var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
 var cookieParser = require('cookie-parser');
 
 app.set("view engine", "jade");
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
 app.use(cookieParser());
-app.use(session({ secret: "Cats are awesome."}));
+app.use(session({ store: new RedisStore({ url: "redis://localhost:6379" }), secret: "Cats are awesome."}));
 app.use(flash());
 
 controllers.init(app);
