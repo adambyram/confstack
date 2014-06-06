@@ -8,8 +8,9 @@
     "email": "abyram@gmail.com"
   },
   "dependencies": {
-      "express": "*",
-      "underscore": "*",
-      "jade": "*"
-  }
+    "express": "*",
+    "underscore": "*",
+    "jade": "*"
+  },
+  "devDependencies": {}
 }
