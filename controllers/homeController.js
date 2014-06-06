@@ -4,8 +4,24 @@
     homeController.init = function(app) {
         app.get('/sessions', function(req, res) {
             data.getSessions(function(err, sessions) {
-                res.render('sessionList', {title: 'Current Session List', sessions: sessions});
+                var error = req.flash('errorMessage');
+                res.render('sessionList', {title: 'Current Session List', sessions: sessions, error: error});
             })
+        });
+
+        app.post('/newSession', function(req, res) {
+            var sessionTitle = req.body.sessionTitle;
+            var sessionSpeaker = req.body.sessionSpeaker;
+            data.createSession(sessionTitle, sessionSpeaker, function(err) {
+                if(err) {
+                    console.log(err);
+                    req.flash('errorMessage', err.message);
+                    res.redirect('/sessions');
+                } else {
+                    res.redirect('/sessions');
+                }
+            });
+
         });
     };
 })(module.exports);

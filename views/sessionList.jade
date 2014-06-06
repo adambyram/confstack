@@ -1,11 +1,19 @@
 extends layout
 block content
     h1= title
-    if error
-        h2= error
     h3 The sessions are:
     each session in sessions
         .row.session
             .well
                 h4= session.title
                 em= session.speaker
+    hr
+    h4 New Session
+        if error
+            .row
+                h2.text-warning= error
+        .row
+            form.form-inline(action='/newSession', role='form', method='post')
+                input.form-control(type='text', name='sessionTitle', placeholder='Title')
+                input.form-control(type='text', name='sessionSpeaker', placeholder='Speaker')
+                input.btn.btn-primary(type='submit',value='New Session')
