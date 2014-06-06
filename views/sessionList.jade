@@ -5,6 +5,7 @@ block content
         h2= error
     h3 The sessions are:
     each session in sessions
-        .session
-            h4= session.title
-            em= session.speaker
+        .row.session
+            .well
+                h4= session.title
+                em= session.speaker
