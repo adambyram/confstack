@@ -1,0 +1,24 @@
+.navbar.navbar-default.navbar-static-top(role="navigation")
+    .container
+        .navbar-header
+            button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-collapse")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href="#") ConfStack
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav
+                if path === 'home'
+                    li.active
+                        a(href="/") Home
+                else
+                    li
+                        a(href="/") Home
+                if path === 'sessions'
+                    li.active
+                        a(href="/sessions") Sessions
+                else
+                    li
+                        a(href="/sessions") Sessions
+

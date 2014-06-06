@@ -8,9 +8,7 @@ html
         script(src='/vendor/jquery/dist/jquery.min.js')
         script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
     body
-        section.container#body
-            .page-header
-                h1= title
+        include _navbar
+        .container
             block content
-        hr
         include _footer

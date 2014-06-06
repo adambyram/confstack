@@ -2,13 +2,18 @@
     var jade = require('jade');
     var data = require('../data');
     homeController.init = function(app) {
+
+        app.get('/', function(req, res) {
+            res.render('index', { path: 'home' });
+        });
+
         app.get('/sessions', function(req, res) {
             data.getSessions(function(err, sessions) {
                 var error = req.flash('errorMessage');
                 sessions.forEach(function(session) {
                    session.rawLink = '/api/sessions/' + session.title;
                 });
-                res.render('sessionList', {title: 'Current Session List', sessions: sessions, error: error});
+                res.render('sessionList', {title: 'Current Session List', sessions: sessions, error: error, path: 'sessions' });
             })
         });
 
