@@ -1,10 +1,14 @@
 {
-  "name": "confstack",
-  "version": "0.0.0",
-  "description": "confstack",
+  "name": "ConfStack",
+  "version": "0.1.0",
+  "description": "A prototype technical conference frontend and backend.",
   "main": "server.js",
   "author": {
-    "name": "adambyram",
-    "email": ""
+    "name": "Adam Byram",
+    "email": "abyram@gmail.com"
+  },
+  "dependencies": {
+      "express": "*",
+      "underscore": "*"
   }
 }
