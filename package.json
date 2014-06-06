@@ -1,0 +1,10 @@
+{
+  "name": "confstack",
+  "version": "0.0.0",
+  "description": "confstack",
+  "main": "server.js",
+  "author": {
+    "name": "adambyram",
+    "email": ""
+  }
+}
