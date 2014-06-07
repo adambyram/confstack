@@ -1,6 +1,6 @@
 (function(database) {
     var mongodb = require('mongodb');
-    var mongoUrl = 'mongodb://localhost:27017/confstack';
+    var mongoUrl = process.env.MONGOHQ_URL || 'mongodb://localhost:27017/confstack';
     var theDb = null;
     database.getDb = function (next) {
         if(!theDb) {
