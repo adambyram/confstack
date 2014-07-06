@@ -11,16 +11,17 @@ var responseTime = require('response-time');
 
 app.set("view engine", "jade");
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 if(process.env.REDISTOGO_URL) {
     var rtg   = require("url").parse(process.env.REDISTOGO_URL);
     var redis = require("redis").createClient(rtg.port, rtg.hostname);
     redis.auth(rtg.auth.split(":")[1]);
-    app.use(session({ store: new RedisStore({ client: redis }), secret: "Cats are awesome."}));
+    app.use(session({ store: new RedisStore({ client: redis }), secret: "Cats are awesome.", saveUninitialized: true, resave: true }));
 } else {
-    app.use(session({ store: new RedisStore({ url: "redis://localhost:6379" }), secret: "Cats are awesome."}));
+    app.use(session({ store: new RedisStore({ url: "redis://localhost:6379" }), secret: "Cats are awesome.", saveUninitialized: true, resave: true}));
 }
 
 app.use(flash());
